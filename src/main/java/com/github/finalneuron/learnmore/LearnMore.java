@@ -4,6 +4,7 @@ import com.github.finalneuron.learnmore.blocks.FirstBlock;
 import com.github.finalneuron.learnmore.blocks.ModBlocks;
 import com.github.finalneuron.learnmore.setup.ClientProxy;
 import com.github.finalneuron.learnmore.setup.IProxy;
+import com.github.finalneuron.learnmore.setup.ModSetup;
 import com.github.finalneuron.learnmore.setup.ServerProxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -32,6 +33,8 @@ public class LearnMore
 {
     public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
 
+    public static ModSetup setup = new ModSetup();
+
     private static final Logger LOGGER = LogManager.getLogger();
 
     public LearnMore() {
@@ -39,7 +42,7 @@ public class LearnMore
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-
+        setup.init();
     }
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
