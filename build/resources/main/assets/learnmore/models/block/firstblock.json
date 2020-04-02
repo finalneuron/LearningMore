@@ -1,6 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
+    "particle": "learnmore:block/firstblock",
     "all": "learnmore:block/firstblock"
   }
 }
