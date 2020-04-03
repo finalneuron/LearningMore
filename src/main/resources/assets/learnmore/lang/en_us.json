@@ -1,3 +1,6 @@
 {
-  "block.learnmore.firstblock": "First Block"
+  "block.learnmore.firstblock": "First Block",
+
+  "_comment": "Creative Tabs",
+  "itemGroup.learnmore": "Learn More"
 }
