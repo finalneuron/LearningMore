@@ -2,6 +2,7 @@ package com.github.finalneuron.learnmore;
 
 import com.github.finalneuron.learnmore.blocks.FirstBlock;
 import com.github.finalneuron.learnmore.blocks.ModBlocks;
+import com.github.finalneuron.learnmore.item.FirstItem;
 import com.github.finalneuron.learnmore.setup.ClientProxy;
 import com.github.finalneuron.learnmore.setup.IProxy;
 import com.github.finalneuron.learnmore.setup.ModSetup;
@@ -60,6 +61,7 @@ public class LearnMore
             Item.Properties properties = new Item.Properties()
                     .group(setup.itemGroup);
             event.getRegistry().register(new BlockItem(ModBlocks.FIRSTBLOCK, properties).setRegistryName("firstblock"));
+            event.getRegistry().register(new FirstItem());
         }
     }
 }
