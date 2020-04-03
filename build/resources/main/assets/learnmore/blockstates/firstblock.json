@@ -1,5 +1,10 @@
 {
   "variants": {
-    "": { "model": "learnmore:block/firstblock" }
+      "facing=north": { "model": "learnmore:block/firstblock" },
+      "facing=south": { "model": "learnmore:block/firstblock", "y": 180 },
+      "facing=west":  { "model": "learnmore:block/firstblock", "y": 270 },
+      "facing=east":  { "model": "learnmore:block/firstblock", "y": 90 },
+      "facing=up":  { "model": "learnmore:block/firstblock", "x": -90 },
+      "facing=down":  { "model": "learnmore:block/firstblock", "x": 90 }
   }
 }

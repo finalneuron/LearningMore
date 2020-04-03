@@ -1,6 +1,7 @@
 package com.github.finalneuron.learnmore;
 
 import com.github.finalneuron.learnmore.blocks.FirstBlock;
+import com.github.finalneuron.learnmore.blocks.FirstBlockTile;
 import com.github.finalneuron.learnmore.blocks.ModBlocks;
 import com.github.finalneuron.learnmore.item.FirstItem;
 import com.github.finalneuron.learnmore.setup.ClientProxy;
@@ -11,6 +12,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -32,7 +34,7 @@ import java.util.stream.Collectors;
 @Mod("learnmore")
 public class LearnMore
 {
-    public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
+    public static IProxy proxy = DistExecutor.runForDist(() -> ClientProxy::new, () -> ServerProxy::new);
 
     public static ModSetup setup = new ModSetup();
 
@@ -62,6 +64,10 @@ public class LearnMore
                     .group(setup.itemGroup);
             event.getRegistry().register(new BlockItem(ModBlocks.FIRSTBLOCK, properties).setRegistryName("firstblock"));
             event.getRegistry().register(new FirstItem());
+        }
+
+        public static void onTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> event) {
+            event.getRegistry().register(TileEntityType.Builder.create(FirstBlockTile::new, ModBlocks.FIRSTBLOCK).build(null));
         }
     }
 }

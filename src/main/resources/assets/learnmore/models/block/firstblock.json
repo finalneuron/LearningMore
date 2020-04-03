@@ -1,7 +1,12 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube",
   "textures": {
     "particle": "learnmore:block/firstblock",
-    "all": "learnmore:block/firstblock"
+    "north": "learnmore:block/firstblock_front",
+    "south": "learnmore:block/firstblock",
+    "east": "learnmore:block/firstblock",
+    "west": "learnmore:block/firstblock",
+    "up": "learnmore:block/firstblock",
+    "down": "learnmore:block/firstblock"
   }
 }
