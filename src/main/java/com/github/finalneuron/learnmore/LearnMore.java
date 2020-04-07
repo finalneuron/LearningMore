@@ -1,6 +1,7 @@
 package com.github.finalneuron.learnmore;
 
 import com.github.finalneuron.learnmore.blocks.FirstBlock;
+import com.github.finalneuron.learnmore.blocks.FirstBlockContainer;
 import com.github.finalneuron.learnmore.blocks.FirstBlockTile;
 import com.github.finalneuron.learnmore.blocks.ModBlocks;
 import com.github.finalneuron.learnmore.item.FirstItem;
@@ -10,10 +11,13 @@ import com.github.finalneuron.learnmore.setup.ModSetup;
 import com.github.finalneuron.learnmore.setup.ServerProxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -69,6 +73,14 @@ public class LearnMore
         @SubscribeEvent
         public static void onTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> event) {
             event.getRegistry().register(TileEntityType.Builder.create(FirstBlockTile::new, ModBlocks.FIRSTBLOCK).build(null).setRegistryName("firstblock"));
+        }
+
+        @SubscribeEvent
+        public static void onContainerRegistry(final RegistryEvent.Register<ContainerType<?>> event) {
+            event.getRegistry().register(IForgeContainerType.create((windowID, inv, data) -> {
+                BlockPos pos = data.readBlockPos();
+                return new FirstBlockContainer(windowID, LearnMore.proxy.getClientWorld(), pos);
+            }).setRegistryName("firstblock"));
         }
     }
 }
