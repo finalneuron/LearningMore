@@ -20,13 +20,14 @@ public class FirstBlock extends Block {
     public FirstBlock() {
         super(Properties.create(Material.IRON)
         .sound(SoundType.METAL)
+        .hardnessAndResistance(2.0f)
         .lightValue(14)
         );
         setRegistryName("firstblock");
     }
 
     @Override
-    public boolean hasTileEntity() {
+    public boolean hasTileEntity(BlockState state) {
         return true;
     }
 

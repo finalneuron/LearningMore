@@ -13,12 +13,14 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import static com.github.finalneuron.learnmore.blocks.ModBlocks.FIRSTBLOCK_TILE;
+
 public class FirstBlockTile extends TileEntity implements ITickableTileEntity {
 
     private ItemStackHandler handler;
 
     public FirstBlockTile() {
-        super(ModBlocks.FIRSTBLOCK_TILE);
+        super(FIRSTBLOCK_TILE);
     }
 
 
